@@ -54,6 +54,8 @@ if [ -z "$inventory_file" ] || [ -z "$host" ]; then
 fi
 
 order=(
+    # "playbooks/docker/main.yml"
+    "playbooks/nginx-proxy-manager/main.yml"
     "playbooks/uptime-kuma/main.yml"
 )
 

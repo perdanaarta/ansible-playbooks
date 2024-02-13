@@ -1,0 +1,20 @@
+---
+- name: Pull Nginx Proxy Manager docker image
+  become: true
+  community.docker.docker_image:
+    name: 'jc21/nginx-proxy-manager:latest'
+    source: pull
+
+- name: Create Nginx Proxy Manager containers
+  become: true
+  community.docker.docker_container:
+    name: "nginx-proxy-manager"
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: true
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - /usr/share/nginx-proxy-manager/data:/data
+      - /usr/share/nginx-proxy-manager/letsencrypt:/etc/letsencrypt

@@ -1,0 +1,6 @@
+---
+- name: Install Nginx Proxy Manager
+  hosts: "{{ variable_host }}"
+  tasks:
+  - name: Install Nginx Proxy Manager
+    ansible.builtin.import_tasks: ./tasks/install-npm.yml

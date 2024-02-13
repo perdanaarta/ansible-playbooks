@@ -1,0 +1,6 @@
+---
+- name: Install Docker
+  hosts: "{{ variable_host }}"
+  tasks:
+  - name: Install Docker
+    ansible.builtin.import_tasks: ./tasks/install-docker.yml
