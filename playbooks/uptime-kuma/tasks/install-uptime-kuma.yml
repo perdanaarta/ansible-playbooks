@@ -1,0 +1,17 @@
+---
+- name: Pull Uptime Kuma docker image
+  become: true
+  community.docker.docker_image:
+    name: 'louislam/uptime-kuma:latest'
+    source: pull
+
+- name: Create default containers
+  become: true
+  community.docker.docker_container:
+    name: "uptime-kuma"
+    image: "louislam/uptime-kuma:latest"
+    restart: true
+    ports:
+      - '3001:3001'
+    volumes:
+      - /usr/share/uptime-kuma:/app/data

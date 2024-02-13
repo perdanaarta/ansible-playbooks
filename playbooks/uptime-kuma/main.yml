@@ -1,0 +1,12 @@
+---
+- name: Install Docker
+  hosts: "{{ variable_host }}"
+  tasks:
+  - name: Install Docker
+    ansible.builtin.import_tasks: ./tasks/install-docker.yml
+
+- name: Install Uptime Kuma
+  hosts: "{{ variable_host }}"
+  tasks:
+  - name: Install uptime kuma
+    ansible.builtin.import_tasks: ./tasks/install-uptime-kuma.yml
